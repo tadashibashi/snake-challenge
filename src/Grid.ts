@@ -13,12 +13,16 @@ export enum Item {
 export class Grid {
     private grid: Array<Item>;
 
-    /** Grid width in indices */
+    /** Width in number of grid squares */
     public readonly width: number;
 
-    /** Grid height in indices */
+    /** Height in number of grid squares */
     public readonly height: number;
 
+    /**
+     * @param width   width in grid squares
+     * @param height  height in grid squares
+     */
     constructor(width: number, height: number) {
         this.grid = new Array(width * height);
         this.grid.fill(0);
@@ -28,9 +32,9 @@ export class Grid {
 
     /**
      * Set an item on the grid
-     * @param {number} x        X-position on the grid to set; from left to right, zero-indexed
-     * @param {number} y        Y-position on the grid to set; from top to bottom, zero-indexed
-     * @param {Item}   item    item to place at the position
+     * @param  x        X-position on the grid to set; from left to right, zero-indexed
+     * @param  y        Y-position on the grid to set; from top to bottom, zero-indexed
+     * @param  item    item to place at the position
      */
     set(x: number, y: number, item: Item) {
         if (x < 0 || x >= this.width)

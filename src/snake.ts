@@ -14,6 +14,24 @@ let right = false;
 let up = false;
 let down = false;
 
+// Setup keyboard input events
+window.addEventListener("keydown", evt => {
+    switch(evt.key) {
+        case "ArrowLeft":  left = true; right = false; up = false; down = false;  break;
+        case "ArrowRight": right = true; left = false; up = false; down = false;  break;
+        case "ArrowUp":    up = true; down = false; left = false; right = false;   break;
+        case "ArrowDown":  down = true;  up = false; right = false; left = false; break;
+    }
+});
+window.addEventListener("keyup", evt => {
+    switch(evt.key) {
+        case "ArrowLeft":  left = false;  break;
+        case "ArrowRight": right = false; break;
+        case "ArrowUp":    up = false;    break;
+        case "ArrowDown":  down = false;  break;
+    }
+});
+
 // ===== Game Events ==========================================================
 /**
  * Called right before the game's first update frame starts
@@ -22,29 +40,11 @@ export function initialize(canvas: HTMLCanvasElement) {
     // Get the canvas logical pixel size
     screenWidth = canvas.width;
     screenHeight = canvas.height;
-
-    // Setup keyboard input events
-    window.addEventListener("keydown", evt => {
-        switch(evt.key) {
-            case "ArrowLeft":  left = true; right = false; up = false; down = false;  break;
-            case "ArrowRight": right = true; left = false; up = false; down = false;  break;
-            case "ArrowUp":    up = true; down = false; left = false; right = false;   break;
-            case "ArrowDown":  down = true;  up = false; right = false; left = false; break;
-        }
-    });
-
-    window.addEventListener("keyup", evt => {
-        switch(evt.key) {
-            case "ArrowLeft":  left = false;  break;
-            case "ArrowRight": right = false; break;
-            case "ArrowUp":    up = false;    break;
-            case "ArrowDown":  down = false;  break;
-        }
-    });
 }
 
 /**
  * Called 60 times per second while the game is running.
+ * Implement game logic here.
  * @param deltaTime time elapsed since last frame, in seconds (~.0167 seconds)
  * @param totalTime time elapsed since the game started, in seconds
  */

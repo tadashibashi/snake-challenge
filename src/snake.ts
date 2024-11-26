@@ -64,14 +64,18 @@ export function update(deltaTime: number, totalTime: number) {
 
     }
 
-    // Update movement timer
-    moveTimer -= deltaTime;
-
-    // "Move" event triggered here when movement timer reaches 0.
-    // Adjust the moveTimerMax to change the snake's movement speed.
+    // "Move" event triggered here when movement timer countdown hits 0.
     if (moveTimer <= 0)
     {
-        // Please change this code (it's just putting random items on the grid)
+        // Update logic here
+
+
+        // It may be good to clear the grid and then fill in the positions of the
+        // snake and fruit every frame.
+        grid.clear();
+
+        // This nested for loop is just an arbitrary example showing how setting the grid affects
+        // what's drawn on screen (it's just outputting random items on each square)
         for (let row = 0; row < grid.height; ++row) {
             for (let column = 0; column < grid.width; ++column) {
                 grid.set(column, row, Math.floor(Math.random() * 3) as Item);
@@ -83,9 +87,8 @@ export function update(deltaTime: number, totalTime: number) {
             moveTimer += moveInterval;
     }
 
-    // It may be good to clear the grid and then fill in the positions of the
-    // snake and fruit every frame.
-    // grid.clear();
+    // Update movement timer
+    moveTimer -= deltaTime;
 }
 
 /**

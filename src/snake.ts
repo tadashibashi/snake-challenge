@@ -77,11 +77,11 @@ export function update(deltaTime: number, totalTime: number) {
                 grid.set(column, row, Math.floor(Math.random() * 3) as Item);
             }
         }
-    }
 
-    // Reset move counter after triggered
-    while (moveTimer <= 0)
-        moveTimer += moveInterval;
+        // Reset move counter after triggered
+        while (moveTimer <= 0)
+            moveTimer += moveInterval;
+    }
 
     // It may be good to clear the grid and then fill in the positions of the
     // snake and fruit every frame.

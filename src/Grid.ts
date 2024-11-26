@@ -49,6 +49,12 @@ export class Grid {
      * @return Queried item value
      */
     get(x: number, y: number): Item {
+        if (x < 0 || x >= this.width)
+            throw new RangeError(
+                `x is out of range: grid width is ${this.width}, but got index ${x}`);
+        if (y < 0 || y >= this.height)
+            throw new RangeError(
+                `y is out of range: grid height is ${this.height}, but got index ${y}`);
         return this.grid[y * this.width + x];
     }
 

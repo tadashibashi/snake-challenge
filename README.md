@@ -34,7 +34,7 @@ Fruit
     - The fruit is moved to another random, unoccupied square.
 
 Snake Growth
-- The snake must remain a contiguous line of squares (connected horizontally or vertically) contiguous spaces on the grid
+- The snake must remain a contiguous string of squares (connected horizontally or vertically)
 - The head dictates the motion, the body follows.
 
 Gameover
